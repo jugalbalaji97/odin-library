@@ -3,6 +3,7 @@
     --sec-color: #233D4D;
     --bg-color: #F5FBE6;
     --hl-color: #FE7F2D;
+    font-family: "Roboto", sans-serif;
 }
 
 * {
@@ -80,7 +81,7 @@ header {
 
 .book-details-dialog {
     margin: auto;
-    padding: 20px 40px;
+    padding: 30px 40px;
     border: 0;
     border-radius: 10px;
     color: var(--sec-color)
@@ -88,6 +89,8 @@ header {
 
 .form-item>label {
     display: block;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
 }
 
 .form-item {
