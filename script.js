@@ -9,11 +9,13 @@ const bookPagesInput = document.querySelector("#pages");
 const closeDialogButton = document.querySelector(".close-dialog");
 const addBookButton = document.querySelector(".add-book");
 
-function Book(name, author, pages) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.id = crypto.randomUUID();
+class Book {
+    constructor(name, author, pages) {
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.id = crypto.randomUUID();
+    }
 }
 
 function addBookToLibrary(name, author, pages) {
@@ -56,7 +58,6 @@ function displayBook(book) {
         e.preventDefault();
         removeBookById(e.target.parentElement.id)
         booksContainer.removeChild(e.target.parentElement);
-        console.log(myLibrary);
     });
 
     bookCover.appendChild(bookDetails);
