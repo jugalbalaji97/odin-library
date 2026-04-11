@@ -76,8 +76,27 @@ newBookButton.addEventListener("click", (e) =>{
     newBookDialog.showModal();
 });
 
-addBookButton.addEventListener("click", (e)=>{
-    if (bookNameInput.value) {
+bookNameInput.setCustomValidity("Book name cannot be empty!");
+bookNameInput.addEventListener("input", (e) => {
+    if (bookNameInput.validity.valueMissing) {
+        bookNameInput.setCustomValidity("Book name cannot be empty!");
+    }
+    else {
+        bookNameInput.setCustomValidity("")
+    }
+})
+
+bookAuthorInput.setCustomValidity("Author name cannot be empty!");
+bookAuthorInput.addEventListener("input", (e) => {
+    if (bookAuthorInput.validity.valueMissing) {
+        bookAuthorInput.setCustomValidity("Book name cannot be empty!");
+    }
+    else {
+        bookAuthorInput.setCustomValidity("")
+    }
+})
+
+newBookForm.addEventListener("submit", (e)=>{
         e.preventDefault();
 
         addBookToLibrary(
@@ -88,13 +107,13 @@ addBookButton.addEventListener("click", (e)=>{
         
         newBookForm.reset();
         newBookDialog.close();
-    }
 })
 
 closeDialogButton.addEventListener("click", (e) =>{
     e.preventDefault();
     newBookDialog.close();
 });
+
 
 addBookToLibrary("Wings of fire", "Dr. A.P.J. Abdul Kalam", 180);
 addBookToLibrary("Tuesdays with Morrie", "Mitch Albom", 192);
